@@ -154,13 +154,13 @@ function playGame(){
     }
 
     if(humanScore === computerScore){
-        alert("Game is a TIE");
+        alert(`Game is a TIEfinal score: H ${humanScore} C ${computerScore}`);
     }
     else if(humanScore > computerScore){
-        alert("The Human Wins");
+        alert(`The Human Wins  final score: H ${humanScore} C ${computerScore}`);
     }
     else{
-        alert("The Computer Wins");
+        alert(`The Computer Wins final score: H ${humanScore} C ${computerScore}`);
     }
 
     humanScore = 0;
