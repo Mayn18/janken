@@ -69,3 +69,102 @@
 
 // console.log(Math.floor(Math.random() * 99 ) + 1)
 
+
+// The Function to get computer choice using a random number from Math.random
+
+function getComputerChoice(){
+    let randomNumber = Math.floor(Math.random() * 99 ) + 1;
+    if(randomNumber<=33){
+        return "rock";
+    }
+    else if(randomNumber <= 66){
+        return "paper";
+    }
+    else{
+        return "scissors";
+    }
+}
+
+// Function to get the choice made by the user
+
+function getHumanChoice(){
+    let choice = prompt("Enter your choice from rock, paper or scissors");
+    return choice;
+}
+
+let humanScore = 0;
+let computerScore = 0;
+
+// function calculate Scores of each round
+function playRound(humanChoice, computerChoice){
+    humanChoice = humanChoice.toLowerCase();
+
+    if (humanChoice === computerChoice){
+        console.log(humanChoice + " " + computerChoice + " " + "TIE");
+        alert("TIE");
+    }
+
+    else if(humanChoice === "rock" && computerChoice === "paper"){
+        computerScore++;
+        console.log(humanChoice + " " + computerChoice + " " + "You lose the Round");
+        alert("You lose the Round");
+    }
+    else if(humanChoice === "paper" && computerChoice === "scissors"){
+        computerScore++;
+        console.log(humanChoice + " " + computerChoice + " " + "You lose the Round");
+        alert("You lose the Round");
+    }
+     else if(humanChoice === "scissors" && computerChoice === "rock"){
+        computerScore++;
+        console.log(humanChoice + " " + computerChoice + " " + "You lose the Round");
+        alert("You lose the Round");
+    }
+
+    else if(humanChoice === "paper" && computerChoice === "rock"){
+        humanScore++;
+        console.log(humanChoice + " " + computerChoice + " " + "You Win the Round");
+        alert("You Win the Round");
+    }
+    else if(humanChoice === "scissors" && computerChoice === "paper"){
+        humanScore++;
+        console.log(humanChoice + " " + computerChoice + " " + "You Win the Round");
+        alert("You Win the Round");
+    }
+     else if(humanChoice === "rock" && computerChoice === "scissors"){
+        humanScore++;
+        console.log(humanChoice + " " + computerChoice + " " + "You Win the Round");
+        alert("You Win the Round");
+    }
+
+}
+
+// Function to play the game
+function playGame(){
+    let humanChoice, computerChoice;
+
+    for(let i = 0; i < 5; i++){
+        humanChoice = getHumanChoice();
+        computerChoice = getComputerChoice();
+
+        console.log(humanChoice + " " + computerChoice + " Round " + i);
+
+        playRound(humanChoice,computerChoice);
+
+        console.log(humanScore + " " + computerScore +" Round "+ i);
+    }
+
+    if(humanScore === computerScore){
+        alert("Game is a TIE");
+    }
+    else if(humanScore > computerScore){
+        alert("The Human Wins");
+    }
+    else{
+        alert("The Computer Wins");
+    }
+
+    humanScore = 0;
+    computerScore = 0;
+}
+
+playGame();
