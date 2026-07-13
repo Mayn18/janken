@@ -5,6 +5,7 @@ const header = document.querySelector(".header");
 const footer = document.querySelector(".footer");
 const announcementBanner = document.querySelector(".announcementBanner");
 const content = document.querySelector(".content");
+const playAgainBtn = document.querySelector("#playAgain")
 
 const announcement = document.createElement("p");
 announcementBanner.appendChild(announcement);
@@ -45,11 +46,13 @@ function gameRounds(humanChoice, computerChoice) {
             announcement.textContent = "Tie";
         }
         else if(computerScore > humanScore){
-            announcement.textContent = "computer wins";
+            announcement.textContent = "Computer Wins";
         }
         else{
-            announcement.textContent = "human win";
+            announcement.textContent = "Human Win";
         }
+        btnArray.forEach(btn => btn.disabled = true);
+        playAgainBtn.style.display = "inline-block";
         return;
     }
     
@@ -69,7 +72,7 @@ function gameRounds(humanChoice, computerChoice) {
         computerScore++;
         computerScoreCount.textContent = computerScore;
         console.log(humanChoice + " " + computerChoice + " " + "You lose the Round");
-        announcement.textContent = "You lose the Round";
+        announcement.textContent = "You Lose the Round";
     }
 
     else if (humanChoice === "paper" && computerChoice === "rock" ||
@@ -107,5 +110,22 @@ function displayPropertyChanger(){
     content.style.display = "flex";
     footer.style.display = "block";
 }
+
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    roundNumber = 0;
+
+    document.querySelector("#humanScoreCount").textContent = humanScore;
+    document.querySelector("#computerScoreCount").textContent = computerScore;
+    document.querySelector("#roundCount").textContent = roundNumber;
+
+    announcement.textContent = "";
+    playAgainBtn.style.display = "none";
+
+    btnArray.forEach(btn => btn.disabled = false);
+}
+
+playAgainBtn.addEventListener('click', resetGame);
 
 frontImage.addEventListener('click', displayPropertyChanger);
