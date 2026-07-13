@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,21 +8,39 @@
     <script type="module" src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <header class="header">
+
+    </header>
+    <section class="frontImage">
+        <img src="/Media/bet.png" alt="Opening Image">
+    </section>
     <div class="main">
-        <header class="header">
 
-        </header>
+        <section class="scoreBoard">
+            <h3>Human Score</h3>
+            <p id="humanScocreCount">0</p>
+            <h3>Human Score</h3>
+            <p id="computerScocreCount">0</p>
+        </section>
 
-        <div class="buttonGroup" >
-            <button id = "rockBtn" class="actionButton">👊</button>
-            <button id = "paperBtn" class="actionButton">🤚</button>
-            <button id = "scissorsBtn" class="actionButton">✌️</button>
+        <div class="buttonGroup">
+            <button id="rockBtn" class="actionButton">👊</button>
+            <button id="paperBtn" class="actionButton">🤚</button>
+            <button id="scissorsBtn" class="actionButton">✌️</button>
         </div>
 
-        <footer>
-            
-        </footer>
     </div>
+    <footer>
+        <p>&copy; 2026 Your Name. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://github.com" target="_blank" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i> 
+                <img src="/Media/github.png" alt="GitHub Logo" class="footer-logo">
+                GitHub
+            </a>
+    </footer>
 </body>
+
 </html>

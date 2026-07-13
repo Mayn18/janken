@@ -4,10 +4,13 @@ const paper = document.querySelector("#paperBtn");
 
 const btnGroup = document.querySelector(".buttonGroup")
 
-let humanChoice;
-let computerChoice;
+const main = document.querySelector(".main");
+
+const frontImage = document.querySelector(".frontImage");
+
 
 let btnArray = [rock, paper, scissors];
+const choices = ["rock", "paper", "scissors"];
 
 let humanScore = 0;
 let computerScore = 0;
@@ -25,28 +28,20 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    switch (humanChoice) {
-        case 0:
-            return "rock";
-        case 1:
-            return "paper";
-        case 2:
-            return "scissors";
-    }
-}
-
-function gameRounds() {
-
+function gameRounds(humanChoice, computerChoice) {
+    console.log("Round:", roundNumber);
     if (roundNumber >= 5) {
         if(computerScore === humanScore){
             alert("Tie");
+            main.textContent = "Tie";
         }
         else if(computerScore > humanScore){
             alert("computer wins")
+            main.textContent = "computer wins";
         }
         else{
             alert("human wins");
+            main.textContent = "human win";
         }
         return;
     }
@@ -79,19 +74,25 @@ function gameRounds() {
     roundNumber++;
 }
 
-function gameStart() {
-    humanChoice = getHumanChoice();
-    computerChoice = getComputerChoice();
+function gameStart(humanChoice) {
+    const computerChoice = getComputerChoice();
 
     console.log(humanChoice, computerChoice);
 
-    gameRounds();
+    gameRounds(humanChoice, computerChoice);
 }
 
 
 btnArray.forEach((btn, i) => {
     btn.addEventListener('click', () => {
-        humanChoice = i;
-        gameStart();
+        gameStart(choices[i]);
     })
 });
+
+
+function displayPropertyChanger(){
+    frontImage.style.display = "none";
+    main.style.display = "flex";
+}
+
+frontImage.addEventListener('click', displayPropertyChanger);
