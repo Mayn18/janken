@@ -11,35 +11,44 @@
 
 <body>
     <header class="header">
-
-    </header>
-    <section class="frontImage">
-        <img src="/Media/bet.png" alt="Opening Image">
-    </section>
-    <div class="main">
-
         <section class="scoreBoard">
-            <h3>Human Score</h3>
-            <p id="humanScocreCount">0</p>
-            <h3>Human Score</h3>
-            <p id="computerScocreCount">0</p>
+            <h3>Round: </h3>
+            <p id="roundCount">0</p>
+            <h3>Human Score: </h3>
+            <p id="humanScoreCount">0</p>
+            <h3>Computer Score: </h3>
+            <p id="computerScoreCount">0</p>
+        </section>
+    </header>
+
+    <section class="main">     
+        <section class="frontImage">
+            <img src="Media/front.png" alt="Opening Image" id="coverImage">
+        </section>
+    
+        <section class="content">
+            <div class="announcementBanner">
+            </div>
+
+            <div class="buttonGroup">
+                <button id="rockBtn" class="actionButton">
+                    <img src="Media/rock.png" alt="">
+                </button>
+                <button id="paperBtn" class="actionButton">
+                    <img src="Media/paper.png" alt="">
+                </button>
+                <button id="scissorsBtn" class="actionButton">
+                    <img src="Media/scissors.png" alt="">
+                </button>
+            </div>
         </section>
 
-        <div class="buttonGroup">
-            <button id="rockBtn" class="actionButton">👊</button>
-            <button id="paperBtn" class="actionButton">🤚</button>
-            <button id="scissorsBtn" class="actionButton">✌️</button>
-        </div>
+    </section>
 
-    </div>
-    <footer>
-        <p>&copy; 2026 Your Name. All rights reserved.</p>
+    <footer class="footer">
         <div class="footer-links">
-            <a href="https://github.com" target="_blank" aria-label="GitHub">
-                <i class="fa-brands fa-github"></i> 
-                <img src="/Media/github.png" alt="GitHub Logo" class="footer-logo">
-                GitHub
-            </a>
+            <a href="https://github.com/Mayn18" target="_blank" aria-label="GitHub">GitHub</a>
+        </div>
     </footer>
 </body>
 

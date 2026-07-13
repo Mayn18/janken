@@ -1,20 +1,26 @@
-const rock = document.querySelector("#rockBtn");
-const scissors = document.querySelector("#scissorsBtn");
-const paper = document.querySelector("#paperBtn");
-
 const btnGroup = document.querySelector(".buttonGroup")
-
 const main = document.querySelector(".main");
-
 const frontImage = document.querySelector(".frontImage");
+const header = document.querySelector(".header");
+const footer = document.querySelector(".footer");
+const announcementBanner = document.querySelector(".announcementBanner");
+const content = document.querySelector(".content");
 
+const announcement = document.createElement("p");
+announcementBanner.appendChild(announcement);
 
-let btnArray = [rock, paper, scissors];
+const btnArray = [
+    document.querySelector("#rockBtn"), 
+    document.querySelector("#paperBtn"), 
+    document.querySelector("#scissorsBtn")
+];
+
 const choices = ["rock", "paper", "scissors"];
 
 let humanScore = 0;
 let computerScore = 0;
 let roundNumber = 0;
+
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 99) + 1;
     if (randomNumber <= 33) {
@@ -29,28 +35,31 @@ function getComputerChoice() {
 }
 
 function gameRounds(humanChoice, computerChoice) {
-    console.log("Round:", roundNumber);
+    const humanScoreCount = document.querySelector("#humanScoreCount");
+    const computerScoreCount = document.querySelector("#computerScoreCount");
+    const roundCount = document.querySelector("#roundCount");
+
+    
     if (roundNumber >= 5) {
         if(computerScore === humanScore){
-            alert("Tie");
-            main.textContent = "Tie";
+            announcement.textContent = "Tie";
         }
         else if(computerScore > humanScore){
-            alert("computer wins")
-            main.textContent = "computer wins";
+            announcement.textContent = "computer wins";
         }
         else{
-            alert("human wins");
-            main.textContent = "human win";
+            announcement.textContent = "human win";
         }
         return;
     }
-
-    console.log("this is hu: ", humanChoice, "this is com: ", computerChoice)
+    
+    console.log("Round:", roundNumber);
+    roundCount.textContent = roundNumber + 1;
+    console.log("Human Choice: ", humanChoice, "Computer Choice: ", computerChoice)
 
     if (humanChoice === computerChoice) {
         console.log(humanChoice + " " + computerChoice + " " + "TIE");
-        alert("TIE");
+        announcement.textContent = "TIE";
     }
 
     else if (humanChoice === "rock" && computerChoice === "paper" ||
@@ -58,8 +67,9 @@ function gameRounds(humanChoice, computerChoice) {
         humanChoice === "scissors" && computerChoice === "rock"
     ) {
         computerScore++;
+        computerScoreCount.textContent = computerScore;
         console.log(humanChoice + " " + computerChoice + " " + "You lose the Round");
-        alert("You lose the Round");
+        announcement.textContent = "You lose the Round";
     }
 
     else if (humanChoice === "paper" && computerChoice === "rock" ||
@@ -67,8 +77,9 @@ function gameRounds(humanChoice, computerChoice) {
         humanChoice === "rock" && computerChoice === "scissors"
     ) {
         humanScore++;
+        humanScoreCount.textContent = humanScore;
         console.log(humanChoice + " " + computerChoice + " " + "You Win the Round");
-        alert("You Win the Round");
+        announcement.textContent = "You Win the Round";
     }
 
     roundNumber++;
@@ -92,7 +103,9 @@ btnArray.forEach((btn, i) => {
 
 function displayPropertyChanger(){
     frontImage.style.display = "none";
-    main.style.display = "flex";
+    header.style.display = "block";
+    content.style.display = "flex";
+    footer.style.display = "block";
 }
 
 frontImage.addEventListener('click', displayPropertyChanger);

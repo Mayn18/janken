@@ -1,39 +1,87 @@
-*{
-    box-sizing: border-box;
+* {
+    margin: 0;
     padding: 0;
-    margin: 0;
+    box-sizing: border-box;
 }
 
-html,
 body {
-    margin: 0;
-    min-height: 100vh;
-    background: black;
-    color: white;
-}
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
 
-.main{
-    display: none;
+    display:flex;
+    justify-content:center;
     flex-direction: column;
-    gap: 20px;
-    padding: 0 20%;
+    align-items:center;
+
+    min-height:100vh;
 }
 
-.frontImage{
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+    margin: 0 20px;
+    justify-content: center;
+}
+
+.frontImage {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
 }
 
-.buttonGroup{
+.header,
+.content,
+.footer {
+    display: none;
+}
+
+#coverImage {
+    max-height: 100vh;
+    width:450px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.scoreBoard {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
+    margin: 10px;
 }
 
-.actionButton{
-    padding: 50px;
-    background-color: gray;
-    font-size: 74px;
+.content{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:#1f2937;
+    width:700px;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.4);
+    gap:30px;
+}
+
+.actionButton {
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+#coverImage:hover{
+
+    transform:scale(1.05);
 }
