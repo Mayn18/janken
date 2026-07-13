@@ -111,3 +111,21 @@ body {
 
     transform: scale(1.05);
 }
+
+.footer{
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer-link{
+    text-decoration: none;
+    font-family: "Geist Pixel", sans-serif;
+    color: white;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.footer-icon {
+    width: 20px;
+    height: 20px;
+}
